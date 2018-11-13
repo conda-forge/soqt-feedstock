@@ -14,7 +14,7 @@ requirements:
     build:
         - {{ compiler("cxx") }}
         - ninja
-        - cmake 3.10.*
+        - cmake
     host:
         - qt 5.*
         - coin3d
