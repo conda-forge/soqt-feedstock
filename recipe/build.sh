@@ -6,7 +6,9 @@ cmake -G "Ninja" \
       -D CMAKE_PREFIX_PATH=$PREFIX \
       -D CMAKE_INSTALL_LIBDIR=$PREFIX/lib \
       -D CMAKE_BUILD_TYPE="Release" \
-      -D USE_QT5=ON \
+      -D SOQT_USE_QT5=ON \
+      -D CMAKE_C_FLAGS_RELEASE=${CFLAGS} \
+      -D CMAKE_C_FLAGS_DEBUG=${CFLAGS} \
       ..
 
 ninja install
