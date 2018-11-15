@@ -9,6 +9,7 @@ cmake -G "Ninja" \
       -D SOQT_USE_QT5=ON \
       -D CMAKE_C_FLAGS_RELEASE=${CFLAGS} \
       -D CMAKE_C_FLAGS_DEBUG=${CFLAGS} \
+      -D SOQT_BUILD_DOCUMENTATION:BOOL=NO \
       ..
 
 ninja install
