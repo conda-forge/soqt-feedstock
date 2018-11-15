@@ -1,13 +1,30 @@
+{% set name = "soqt" %}
+{% set version = "1.6.0a" %}
+{% set commitsoqt = "ea5cd7646087" %}
+{% set commitsoanydata = "f8721d842e1d" %}
+{% set commitsogui = "04d1d8732971" %}
+{% set commitcpack = "7a4972d58197" %}
+{% set sha256soqt = "947e211ee744ea6aea4e04a0aaba87c54d0679ce34779e7907ef6f74e6ef64f0" %}
+{% set sha256soanydata = "c319e7ccf537ea78298c1c1c3612c36a6671be2afabaa1e9ae21da0e36db348c" %}
+{% set sha256sogui = "1ffcb62cd544cf34102ad927e5b414c7e377636d17960657ccea0452372cabba" %}
+{% set sha256cpack = "1d4570153fd4bb92ce4cbf8eae413ba2bb810851a158e680706cc1cf7ff027e3" %}
+
 package:
-    name: soqt
-    version: "1.6.0a"
+    name: {{ name }}
+    version: {{ version }}
 
 source:
-    fn: soqt.tar.gz
-    url: https://github.com/FreeCAD/pivy/releases/download/0.6.4/soqt_1.6.0a.tar.gz
-    sha256: a36664382e6a35873b7d0f65a1d302bdb3198d8bf8ae80e7f2db10c5f3bf895f
-    patches:
-        - find-qt5.patch
+    - url: https://bitbucket.org/Coin3D/soqt/get/{{ commitsoqt }}.zip
+      sha256: {{ sha256soqt }}
+    - url: https://bitbucket.org/Coin3D/soanydata/get/{{ commitsoanydata }}.zip
+      sha256: {{ sha256soanydata }}
+      folder: data
+    - url: https://bitbucket.org/Coin3D/sogui/get/{{ commitsogui }}.zip
+      sha256: {{ sha256sogui }}
+      folder: src/Inventor/Qt/common
+    - url: https://bitbucket.org/Coin3D/cpack.d/get/{{ commitcpack }}.zip
+      sha256: {{ sha256cpack}}
+      folder: cpack.d
 
 
 build:
@@ -21,9 +38,17 @@ requirements:
     host:
         - qt 5.*
         - coin3d
+        - libglu  # [linux]
+        - xorg-libxt  # [linux]
+        - xorg-libxmu  # [linux]
+        - xorg-libxi  # [linux]
     run:
         - qt 5.*
         - coin3d
+        - libglu  # [linux]
+        - xorg-libxt  # [linux]
+        - xorg-libxmu  # [linux]
+        - xorg-libxi  # [linux]
 test:
     requires:
         - cmake
