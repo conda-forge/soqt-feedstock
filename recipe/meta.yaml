@@ -38,7 +38,7 @@ requirements:
         - {{ cdt('libselinux') }}  # [linux]
         - {{ cdt('libxdamage') }}  # [linux]
         - {{ cdt('libxfixes') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
+        - {{ cdt('libxcb') }}  # [linux]
         - ninja
         - cmake
     host:
