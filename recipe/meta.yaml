@@ -45,14 +45,14 @@ requirements:
         - ninja
         - cmake
     host:
-        - qt 5.*
+        - qt 5.6
         - coin3d
         - libglu  # [linux]
         - xorg-libxt  # [linux]
         - xorg-libxmu  # [linux]
         - xorg-libxi  # [linux]
     run:
-        - qt 5.*
+        - qt 5.6
         - coin3d
         - libglu  # [linux]
         - xorg-libxt  # [linux]
