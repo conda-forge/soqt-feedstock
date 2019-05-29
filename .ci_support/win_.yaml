@@ -4,3 +4,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2015
+pin_run_as_build:
+  qt:
+    max_pin: x.x
+qt:
+- '5.9'
