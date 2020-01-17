@@ -1,34 +1,30 @@
 {% set name = "soqt" %}
-{% set version = "1.6.0a" %}
-{% set commitsoqt = "ea5cd7646087" %}
-{% set commitsoanydata = "f8721d842e1d" %}
-{% set commitsogui = "04d1d8732971" %}
-{% set commitcpack = "7a4972d58197" %}
-{% set sha256soqt = "947e211ee744ea6aea4e04a0aaba87c54d0679ce34779e7907ef6f74e6ef64f0" %}
-{% set sha256soanydata = "c319e7ccf537ea78298c1c1c3612c36a6671be2afabaa1e9ae21da0e36db348c" %}
-{% set sha256sogui = "1ffcb62cd544cf34102ad927e5b414c7e377636d17960657ccea0452372cabba" %}
-{% set sha256cpack = "1d4570153fd4bb92ce4cbf8eae413ba2bb810851a158e680706cc1cf7ff027e3" %}
+
+{% set version = "1.6.0" %}
+{% set commitsoanydata = "3ff6e9203fbb0cc08a2bdf209212b7ef4d78a1f2" %}
+{% set commitsogui = "80e75695974e20340853084c858e4a70c2411efb" %}
+
+{% set sha256soqt = "80bbee01089af754380c48ea435008ea93465149999a545741c410efe8e9bef9" %}
+{% set sha256soanydata = "ede29d60d1b35e66193aaf115784f87867ab1658cb1d977fe75dfc0d0ffb3241" %}
+{% set sha256sogui = "f14938ed9ed9920feac25273c6499be131fb55fab454747449ee9ad3e98cd765" %}
 
 package:
     name: {{ name }}
     version: {{ version }}
 
 source:
-    - url: https://bitbucket.org/Coin3D/soqt/get/{{ commitsoqt }}.zip
+    - url: https://github.com/coin3d/soqt/archive/SoQt-{{ version }}.tar.gz
       sha256: {{ sha256soqt }}
-    - url: https://bitbucket.org/Coin3D/soanydata/get/{{ commitsoanydata }}.zip
+    - url: https://github.com/coin3d/soanydata/archive/{{ commitsoanydata }}.tar.gz
       sha256: {{ sha256soanydata }}
       folder: data
-    - url: https://bitbucket.org/Coin3D/sogui/get/{{ commitsogui }}.zip
+    - url: https://github.com/coin3d/soanydata/archive/{{ commitsogui }}.tar.gz
       sha256: {{ sha256sogui }}
       folder: src/Inventor/Qt/common
-    - url: https://bitbucket.org/Coin3D/cpack.d/get/{{ commitcpack }}.zip
-      sha256: {{ sha256cpack}}
-      folder: cpack.d
 
 
 build:
-    number: 1003
+    number: 0
 
 requirements:
     build:
