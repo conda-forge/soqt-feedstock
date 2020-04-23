@@ -11,7 +11,7 @@ source:
       sha256: {{ sha256 }}
       patches:
         - 0001-make-cpack-optional-and-disabled-by-default.patch
-        - gl_private_linking.patch
+        - gl_private_linking.patch  # [linux]
 
 
 build:
