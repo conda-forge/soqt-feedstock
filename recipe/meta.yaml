@@ -1,32 +1,21 @@
 {% set name = "soqt" %}
-
 {% set version = "1.6.0" %}
-{% set commitsoanydata = "3ff6e9203fbb0cc08a2bdf209212b7ef4d78a1f2" %}
-{% set commitsogui = "80e75695974e20340853084c858e4a70c2411efb" %}
-
-{% set sha256soqt = "80bbee01089af754380c48ea435008ea93465149999a545741c410efe8e9bef9" %}
-{% set sha256soanydata = "ede29d60d1b35e66193aaf115784f87867ab1658cb1d977fe75dfc0d0ffb3241" %}
-{% set sha256sogui = "f14938ed9ed9920feac25273c6499be131fb55fab454747449ee9ad3e98cd765" %}
+{% set sha256 = "9f535af59f07c907022815679681bd345c9dec2f408c74833f6b1b24bca40e1f" %}
 
 package:
     name: {{ name }}
     version: {{ version }}
 
 source:
-    - url: https://github.com/coin3d/soqt/archive/SoQt-{{ version }}.tar.gz
-      sha256: {{ sha256soqt }}
-      patches: 0001-make-cpack-optional-and-disabled-by-default.patch
-
-    - url: https://github.com/coin3d/soanydata/archive/{{ commitsoanydata }}.tar.gz
-      sha256: {{ sha256soanydata }}
-      folder: data
-    - url: https://github.com/coin3d/sogui/archive/{{ commitsogui }}.tar.gz
-      sha256: {{ sha256sogui }}
-      folder: src/Inventor/Qt/common
+    - url: https://github.com/coin3d/soqt/releases/download/SoQt-{{ version }}/soqt-{{ version }}-src.tar.gz
+      sha256: {{ sha256 }}
+      patches:
+        - 0001-make-cpack-optional-and-disabled-by-default.patch
+        - gl_private_linking.patch  # [linux]
 
 
 build:
-    number: 0
+    number: 1
 
 requirements:
     build:
@@ -46,16 +35,17 @@ requirements:
         - qt
         - coin3d
         - libglu  # [linux]
-        - xorg-libxt  # [linux]
-        - xorg-libxmu  # [linux]
-        - xorg-libxi  # [linux]
+        - xorg-libxt  # [unix]
+        - xorg-libxmu  # [unix]
+        - xorg-libxi  # [unix]
+        
     run:
         - qt
         - coin3d
         - libglu  # [linux]
-        - xorg-libxt  # [linux]
-        - xorg-libxmu  # [linux]
-        - xorg-libxi  # [linux]
+        - xorg-libxt  # [unix]
+        - xorg-libxmu  # [unix]
+        - xorg-libxi  # [unix]
 test:
     requires:
         - cmake
@@ -68,7 +58,7 @@ test:
 
 about:
     home: https://bitbucket.org/Coin3D/soqt
-    license: BSD 3-Clause
+    license: BSD-3-Clause
     license_family: BSD
     license_file: COPYING
     summary: SoQt library needed by Coin3d.
