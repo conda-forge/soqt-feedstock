@@ -38,6 +38,7 @@ requirements:
         - xorg-libxt  # [linux]
         - xorg-libxmu  # [linux]
         - xorg-libxi  # [linux]
+        - xorg-libx11  # [osx]
     run:
         - qt
         - coin3d
@@ -45,6 +46,7 @@ requirements:
         - xorg-libxt  # [linux]
         - xorg-libxmu  # [linux]
         - xorg-libxi  # [linux]
+        - xorg-libx11  # [osx]
 test:
     requires:
         - cmake
