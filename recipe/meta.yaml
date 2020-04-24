@@ -43,10 +43,9 @@ requirements:
         - qt
         - coin3d
         - libglu  # [linux]
-        - xorg-libxt  # [linux]
-        - xorg-libxmu  # [linux]
-        - xorg-libxi  # [linux]
-        - xorg-libx11  # [osx]
+        - xorg-libxt  # [unix]
+        - xorg-libxmu  # [unix]
+        - xorg-libxi  # [unix]
 test:
     requires:
         - cmake
