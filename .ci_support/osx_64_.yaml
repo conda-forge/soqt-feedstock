@@ -10,10 +10,5 @@ cxx_compiler_version:
 - '13'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-pin_run_as_build:
-  qt:
-    max_pin: x.x
-qt:
-- '5.12'
 target_platform:
 - osx-64
