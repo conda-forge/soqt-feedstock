@@ -32,7 +32,7 @@ requirements:
         - ninja
         - cmake
     host:
-        - qt
+        - qt-main
         - coin3d
         - libglu  # [linux]
         - xorg-libxt  # [unix]
@@ -40,7 +40,7 @@ requirements:
         - xorg-libxi  # [unix]
         
     run:
-        - qt
+        - qt-main
         - coin3d
         - libglu  # [linux]
         - xorg-libxt  # [unix]
