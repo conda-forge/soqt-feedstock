@@ -15,7 +15,7 @@ source:
 
 
 build:
-    number: 2
+    number: 3
 
 requirements:
     build:
@@ -31,21 +31,21 @@ requirements:
     host:
         - qt-main
         - coin3d
-        - libglu  # [linux]
-        - xorg-libxt  # [unix]
-        - xorg-libxmu  # [unix]
-        - xorg-libxi  # [unix]
         
     run:
         - qt-main
         - coin3d
-        - libglu  # [linux]
-        - xorg-libxt  # [unix]
-        - xorg-libxmu  # [unix]
-        - xorg-libxi  # [unix]
 test:
     requires:
         - cmake
+        - ninja
+        - {{ compiler("cxx") }}
+        - {{ cdt('mesa-libgl-devel') }}  # [linux]
+        - {{ cdt('mesa-dri-drivers') }}  # [linux]
+        - {{ cdt('libselinux') }}  # [linux]
+        - {{ cdt('libxdamage') }}  # [linux]
+        - {{ cdt('libxxf86vm') }}  # [linux]
+        - {{ cdt('libxext') }}     # [linux]
 
     files:
         - CMakeLists.txt
