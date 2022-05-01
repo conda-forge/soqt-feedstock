@@ -15,7 +15,7 @@ source:
 
 
 build:
-    number: 2
+    number: 3
 
 requirements:
     build:
@@ -24,37 +24,34 @@ requirements:
         - {{ cdt('mesa-dri-drivers') }}  # [linux]
         - {{ cdt('libselinux') }}  # [linux]
         - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxfixes') }}  # [linux]
-        - {{ cdt('libxcb') }}  # [linux]
-        - {{ cdt('libxau') }}  # [linux]
-        - {{ cdt('libxau') }}  # [linux]
-        - {{ cdt('libXxf86vm') }}  # [linux]
+        - {{ cdt('libxxf86vm') }}  # [linux]
+        - {{ cdt('libxext') }}     # [linux]
         - ninja
         - cmake
     host:
-        - qt
+        - qt-main
         - coin3d
-        - libglu  # [linux]
-        - xorg-libxt  # [unix]
-        - xorg-libxmu  # [unix]
-        - xorg-libxi  # [unix]
         
     run:
-        - qt
+        - qt-main
         - coin3d
-        - libglu  # [linux]
-        - xorg-libxt  # [unix]
-        - xorg-libxmu  # [unix]
-        - xorg-libxi  # [unix]
 test:
     requires:
         - cmake
+        - ninja
+        - {{ compiler("cxx") }}
+        - {{ cdt('mesa-libgl-devel') }}  # [linux]
+        - {{ cdt('mesa-dri-drivers') }}  # [linux]
+        - {{ cdt('libselinux') }}  # [linux]
+        - {{ cdt('libxdamage') }}  # [linux]
+        - {{ cdt('libxxf86vm') }}  # [linux]
+        - {{ cdt('libxext') }}     # [linux]
 
     files:
         - CMakeLists.txt
 
     commands:
-        - cmake .
+        - cmake -G "Ninja" .
 
 about:
     home: https://bitbucket.org/Coin3D/soqt
