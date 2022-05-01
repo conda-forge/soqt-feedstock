@@ -51,7 +51,7 @@ test:
         - CMakeLists.txt
 
     commands:
-        - cmake .
+        - cmake -G "Ninja" .
 
 about:
     home: https://bitbucket.org/Coin3D/soqt
