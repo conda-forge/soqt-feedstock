@@ -24,11 +24,8 @@ requirements:
         - {{ cdt('mesa-dri-drivers') }}  # [linux]
         - {{ cdt('libselinux') }}  # [linux]
         - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxfixes') }}  # [linux]
-        - {{ cdt('libxcb') }}  # [linux]
-        - {{ cdt('libxau') }}  # [linux]
-        - {{ cdt('libxau') }}  # [linux]
-        - {{ cdt('libXxf86vm') }}  # [linux]
+        - {{ cdt('libxxf86vm') }}  # [linux]
+        - {{ cdt('libxext') }}     # [linux]
         - ninja
         - cmake
     host:
