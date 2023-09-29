@@ -1,7 +1,9 @@
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./cfg
 mkdir -p build
 cd build
 
-cmake -G "Ninja" \
+cmake ${CMAKE_ARGS} -G "Ninja" \
       -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_PREFIX_PATH=$PREFIX \
       -D CMAKE_BUILD_TYPE="Release" \
