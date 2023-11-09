@@ -10,7 +10,6 @@ source:
     - url: https://github.com/coin3d/soqt/archive/ab0595fe864470451ca303afb9b49c796daf2c00.tar.gz
       sha256: {{ sha256 }}
       patches:
-        - 0001-make-cpack-optional-and-disabled-by-default.patch
         - gl_private_linking.patch  # [linux]
 
 
