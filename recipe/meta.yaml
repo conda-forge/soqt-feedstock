@@ -29,11 +29,11 @@ requirements:
         - ninja
         - cmake
     host:
-        - qt-main
+        - qt6-main
         - coin3d
         
     run:
-        - qt-main
+        - qt6-main
         - coin3d
 test:
     requires:
