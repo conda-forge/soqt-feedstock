@@ -1,13 +1,13 @@
 {% set name = "soqt" %}
 {% set version = "1.6.0" %}
-{% set sha256 = "9f535af59f07c907022815679681bd345c9dec2f408c74833f6b1b24bca40e1f" %}
+{% set sha256 = "30bdee906386e86e24f50eb3dfd233e7f7f74779816bfcac79afa501902c9d51" %}
 
 package:
     name: {{ name }}
     version: {{ version }}
 
 source:
-    - url: https://github.com/coin3d/soqt/releases/download/SoQt-{{ version }}/soqt-{{ version }}-src.tar.gz
+    - url: https://github.com/coin3d/soqt/archive/ab0595fe864470451ca303afb9b49c796daf2c00.tar.gz
       sha256: {{ sha256 }}
       patches:
         - 0001-make-cpack-optional-and-disabled-by-default.patch
