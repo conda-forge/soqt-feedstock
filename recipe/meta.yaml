@@ -14,6 +14,9 @@ source:
     - url: https://github.com/coin3d/soanydata/archive/5b65b91838fae7504d745541fedccc031ce9197d.tar.gz
       sha256: "8b54eb87312ddd7d7b9c54df6ebf0b78b0021c900019ad74b51f1402d882184a"
       folder: data
+    - url: https://github.com/coin3d/sogui/archive/1a92402ff8b40e0b790ed46cef4d617f2fbfaa48.tar.gz
+      sha256: "abc"
+      folder: src/Inventor/Qt
 
 
 build:
