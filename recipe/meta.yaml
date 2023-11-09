@@ -14,7 +14,7 @@ source:
       sha256: "1ce8e45e176353a8de6392f8bd82255517ece296dc9200e10bdb598f1335b318"
       folder: data
     - url: https://github.com/coin3d/sogui/archive/1a92402ff8b40e0b790ed46cef4d617f2fbfaa48.tar.gz
-      sha256: "abc"
+      sha256: "7ffb05f42bf48b57cc2d9feb949f69310c8e20b70f62810ed8d42051d2790b60"
       folder: src/Inventor/Qt
 
 
