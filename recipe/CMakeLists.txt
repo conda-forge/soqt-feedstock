@@ -1,4 +1,4 @@
-project(soqt_test NONE)
+project(soqt_test C CXX)
 cmake_minimum_required(VERSION 3.5)
 
 find_package(soqt CONFIG REQUIRED)
