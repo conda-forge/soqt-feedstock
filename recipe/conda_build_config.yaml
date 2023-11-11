@@ -7,6 +7,6 @@ c_compiler_version:        # [osx]
   - 15                     # [osx]
 cxx_compiler_version:      # [osx]
   - 15                     # [osx]
-build-variant:
+build_variant:
   - "qt6"
   - "qt5"
