@@ -34,13 +34,13 @@ requirements:
         - ninja
         - cmake
     host:
-        - qt6-main  # [build_variant == qt6]
-        - qt-main  # [build_variant == qt5]
+        - qt6-main  # [build_variant == "qt6"]
+        - qt-main  # [build_variant == "qt5"]
         - coin3d
         
     run:
-        - qt6-main  # [build_variant == qt6]
-        - qt-main  # [build_variant == qt5]
+        - qt6-main  # [build_variant == "qt6"]
+        - qt-main  # [build_variant == "qt5"]
         - coin3d
 test:
     requires:
