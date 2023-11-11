@@ -9,7 +9,7 @@ fi
 if [[ "$build_variant" = "qt6" ]]; then
       QT_SELECTOR+=(-D SOQT_USE_QT6=ON)
 fi
-echo "build_variant
+
 cmake -G "Ninja" \
       -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_PREFIX_PATH=$PREFIX \
