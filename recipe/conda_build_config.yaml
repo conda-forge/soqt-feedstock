@@ -7,3 +7,6 @@ c_compiler_version:        # [osx]
   - 15                     # [osx]
 cxx_compiler_version:      # [osx]
   - 15                     # [osx]
+qt-main:
+  - qt6-main
+  - qt-main
