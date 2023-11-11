@@ -58,7 +58,7 @@ test:
         - CMakeLists.txt
 
     commands:
-        - cmake -G "Ninja" .
+        - cmake -G "Ninja" -D QT_HOST_PATH=${PREFIX} .
 
 about:
     home: https://bitbucket.org/Coin3D/soqt
