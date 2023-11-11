@@ -30,15 +30,17 @@ requirements:
         - {{ cdt('libxdamage') }}  # [linux]
         - {{ cdt('libxxf86vm') }}  # [linux]
         - {{ cdt('libxext') }}     # [linux]
-        - {{ qt-main }}  # [build_platform != target_platform]
+        - qt6-main  # [build_platform != target_platform and build_variant == qt6]
         - ninja
         - cmake
     host:
-        - {{ qt-main }}
+        - qt6-main  # [build_variant == qt6]
+        - qt-main  # [build_variant == qt5]
         - coin3d
         
     run:
-        - {{ qt-main }}
+        - qt6-main  # [build_variant == qt6]
+        - qt-main  # [build_variant == qt5]
         - coin3d
 test:
     requires:
