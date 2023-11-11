@@ -3,13 +3,13 @@ cd build
 
 declare -a QT_SELECTOR
 
-if [[ "$build_variant" == "qt5" ]]; then
+if [[ "$build_variant" = "qt5" ]]; then
       QT_SELECTOR+=(-D SOQT_USE_QT5=ON)
 fi
-if [[ "$build_variant" == "qt6" ]]; then
+if [[ "$build_variant" = "qt6" ]]; then
       QT_SELECTOR+=(-D SOQT_USE_QT6=ON)
 fi
-
+echo "build_variant
 cmake -G "Ninja" \
       -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_PREFIX_PATH=$PREFIX \
