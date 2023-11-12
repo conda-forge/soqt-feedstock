@@ -1,9 +1,14 @@
 {% set name = "soqt" %}
 {% set version = "1.6.0" %}
 
+{% if build_variant == "qt6" %}
+{% set name_suffix = "6" %}
+{% else %}
+{% set name_suffix = "" %}
+{% endif %}
+
 package:
-    name: soqt6   # [build_variant == "qt6"]
-    name: soqt    # [build_variant == "qt5"]
+    name: {{ name }} {{ name_suffix }}
     version: {{ version }}
 
 source:
