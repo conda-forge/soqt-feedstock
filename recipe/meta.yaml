@@ -8,7 +8,7 @@
 {% endif %}
 
 package:
-    name: {{ name }} {{ name_suffix }}
+    name: {{ name }}{{ name_suffix }}
     version: {{ version }}
 
 source:
