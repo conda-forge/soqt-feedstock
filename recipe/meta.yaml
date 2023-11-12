@@ -17,7 +17,6 @@ source:
       sha256: "7ffb05f42bf48b57cc2d9feb949f69310c8e20b70f62810ed8d42051d2790b60"
       folder: src/Inventor/Qt/common
 
-
 build:
     number: 4
 
@@ -38,11 +37,11 @@ requirements:
         - qt6-main  # [build_variant == "qt6"]
         - qt-main  # [build_variant == "qt5"]
         - coin3d
-        
     run:
         - qt6-main  # [build_variant == "qt6"]
         - qt-main  # [build_variant == "qt5"]
         - coin3d
+
 test:
     requires:
         - cmake
@@ -62,16 +61,17 @@ test:
         - cmake -G "Ninja" -D QT_HOST_PATH=${PREFIX} .
 
 about:
-    home: https://bitbucket.org/Coin3D/soqt
+    home: https://github.com/coin3d/soqt
     license: BSD-3-Clause
     license_family: BSD
     license_file: COPYING
     summary: SoQt library needed by Coin3d.
-    description: SoQt is a Qt GUI component toolkit library for Coin.  It is also compatible
-                 with SGI and TGS Open Inventor, and the API is based on the API of the
-                 InventorXt GUI component toolkit.
-    doc_url: https://bitbucket.org/Coin3D/soqt
-    dev_url: https://bitbucket.org/Coin3D/soqt
+    description: >
+        SoQt is a Qt GUI component toolkit library for Coin. It is also compatible
+        with SGI and TGS Open Inventor, and the API is based on the API of the
+        InventorXt GUI component toolkit.
+    doc_url: https://github.com/coin3d/soqt
+    dev_url: https://github.com/coin3d/soqt
 
 extra:
     recipe-maintainers:
