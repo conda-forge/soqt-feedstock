@@ -31,6 +31,7 @@ requirements:
         - {{ cdt('libxxf86vm') }}  # [linux]
         - {{ cdt('libxext') }}     # [linux]
         - qt6-main  # [build_platform != target_platform and build_variant == "qt6"]
+        - qt-main  # [build_platform != target_platform and build_variant == "qt5"]
         - ninja
         - cmake
     host:

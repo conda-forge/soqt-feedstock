@@ -12,6 +12,12 @@ elif [[ "$build_variant" = "qt6" ]]; then
     QT_SELECTOR="-D SOQT_USE_QT6=ON"
 fi
 
+# Ensure the build uses the correct Qt tools
+if [[ ${target_platform} =~ osx-arm64 ]]; then
+    rm -f "${PREFIX}/lib/qt6/moc"
+    ln -s "${BUILD_PREFIX}/lib/qt6/moc" "${PREFIX}/lib/qt6/moc"
+fi
+
 # Run CMake with specified options
 cmake -G "Ninja" \
     -D CMAKE_INSTALL_PREFIX="$PREFIX" \
