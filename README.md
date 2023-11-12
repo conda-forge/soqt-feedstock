@@ -75,20 +75,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_build_variantqt5</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5395&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/soqt-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_build_variantqt5" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_build_variantqt6</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5395&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/soqt-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_build_variantqt6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>win_64_build_variantqt5</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5395&branchName=main">

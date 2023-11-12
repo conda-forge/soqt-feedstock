@@ -14,5 +14,9 @@ cxx_compiler_version:
 - '15'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+qt6_main:
+- '6.5'
+qt_main:
+- '5.15'
 target_platform:
 - osx-64

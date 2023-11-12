@@ -14,12 +14,6 @@ jobs:
       osx_64_build_variantqt6:
         CONFIG: osx_64_build_variantqt6
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_build_variantqt5:
-        CONFIG: osx_arm64_build_variantqt5
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_build_variantqt6:
-        CONFIG: osx_arm64_build_variantqt6
-        UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
   steps:
