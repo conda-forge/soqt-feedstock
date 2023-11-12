@@ -5,10 +5,16 @@ set "QT_SELECTOR="
 
 if "%build_variant%"=="qt5" (
     set "QT_SELECTOR=-D SOQT_USE_QT5=ON"
+    echo QT_SELECTOR set for qt5: %QT_SELECTOR%
 )
 
 if "%build_variant%"=="qt6" (
     set "QT_SELECTOR=-D SOQT_USE_QT6=ON"
+    echo QT_SELECTOR set for qt6: %QT_SELECTOR%
+)
+
+if "%QT_SELECTOR%"=="" (
+    echo Unknown build variant: %build_variant%. QT_SELECTOR remains unset.
 )
 
 cmake -G "Ninja" ^
