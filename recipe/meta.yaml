@@ -2,7 +2,8 @@
 {% set version = "1.6.0" %}
 
 package:
-    name: {{ name }}
+    name: soqt6   # [build_variant == "qt6"]
+    name: soqt    # [build_variant == "qt5"]
     version: {{ version }}
 
 source:
@@ -41,6 +42,9 @@ requirements:
         - qt6-main  # [build_variant == "qt6"]
         - qt-main  # [build_variant == "qt5"]
         - coin3d
+    run_constrained:
+        - soqt <0     # [build_variant == "qt6"]
+        - soqt6 <0    # [build_variant == "qt5"]
 
 test:
     requires:
