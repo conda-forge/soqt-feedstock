@@ -15,7 +15,7 @@ cmake -G "Ninja" \
       -D CMAKE_PREFIX_PATH=$PREFIX \
       -D CMAKE_BUILD_TYPE="Release" \
       -D SOQT_BUILD_DOCUMENTATION:BOOL=NO \
-      -D QT_HOST_PATH=${BUILD_PREFIX} \
+      -D QT_HOST_PATH=${PREFIX} \
       ${QT_SELECTOR[@]} \
       ..
 
