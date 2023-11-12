@@ -30,7 +30,7 @@ requirements:
         - {{ cdt('libxdamage') }}  # [linux]
         - {{ cdt('libxxf86vm') }}  # [linux]
         - {{ cdt('libxext') }}     # [linux]
-        - qt6-main  # [build_platform != target_platform and build_variant == qt6]
+        - qt6-main  # [build_platform != target_platform and build_variant == "qt6"]
         - ninja
         - cmake
     host:
