@@ -1,5 +1,5 @@
 {% set name = "soqt" %}
-{% set version = "1.6.0" %}
+{% set version = "1.6.1" %}
 
 {% if build_variant == "qt6" %}
 {% set name_suffix = "6" %}
@@ -12,16 +12,10 @@ package:
     version: {{ version }}
 
 source:
-    - url: https://github.com/coin3d/soqt/archive/ab0595fe864470451ca303afb9b49c796daf2c00.tar.gz
-      sha256: "8b54eb87312ddd7d7b9c54df6ebf0b78b0021c900019ad74b51f1402d882184a"
+    - url: https://github.com/{{ name }}/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
+      sha256: "80289d9bd49ffe709ab85778c952573f43f1c725ea958c6d5969b2e9c77bb3ba"
       patches:
         - patches/gl_private_linking.patch  # [linux]
-    - url: https://github.com/coin3d/soanydata/archive/5b65b91838fae7504d745541fedccc031ce9197d.tar.gz
-      sha256: "1ce8e45e176353a8de6392f8bd82255517ece296dc9200e10bdb598f1335b318"
-      folder: data
-    - url: https://github.com/coin3d/sogui/archive/1a92402ff8b40e0b790ed46cef4d617f2fbfaa48.tar.gz
-      sha256: "7ffb05f42bf48b57cc2d9feb949f69310c8e20b70f62810ed8d42051d2790b60"
-      folder: src/Inventor/Qt/common
 
 build:
     number: 4
