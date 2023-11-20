@@ -1,0 +1,14 @@
+build_variant:
+- qt5
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2019
+qt6_main:
+- '6.5'
+qt_main:
+- '5.15'
+target_platform:
+- win-64

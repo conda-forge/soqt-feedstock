@@ -1,0 +1,14 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index c9e92672..0b02bec7 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -163,7 +163,8 @@ if(NOT SO${GUI}_BUILD_MAC_FRAMEWORK)
+   target_include_directories(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+ endif()
+ 
+-target_link_libraries(${PROJECT_NAME} PUBLIC Coin::Coin ${SOQT_QT_TARGETS} ${OPENGL_LIBRARIES} ${SOQT_X11_LIBRARIES})
++target_link_libraries(${PROJECT_NAME} PUBLIC Coin::Coin ${SOQT_QT_TARGETS})
++target_link_libraries(${PROJECT_NAME} PRIVATE ${OPENGL_LIBRARIES} ${SOQT_X11_LIBRARIES})
+ 
+ # Add a target to generate API documentation with Doxygen
+ if(SO${GUI}_BUILD_DOCUMENTATION)

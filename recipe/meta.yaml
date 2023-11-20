@@ -1,21 +1,24 @@
 {% set name = "soqt" %}
-{% set version = "1.6.0" %}
-{% set sha256 = "9f535af59f07c907022815679681bd345c9dec2f408c74833f6b1b24bca40e1f" %}
+{% set version = "1.6.1" %}
+
+{% if build_variant == "qt6" %}
+{% set name_suffix = "6" %}
+{% else %}
+{% set name_suffix = "" %}
+{% endif %}
 
 package:
-    name: {{ name }}
+    name: {{ name }}{{ name_suffix }}
     version: {{ version }}
 
 source:
-    - url: https://github.com/coin3d/soqt/releases/download/SoQt-{{ version }}/soqt-{{ version }}-src.tar.gz
-      sha256: {{ sha256 }}
+    - url: https://github.com/coin3d/{{ name }}/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
+      sha256: "80289d9bd49ffe709ab85778c952573f43f1c725ea958c6d5969b2e9c77bb3ba"
       patches:
-        - 0001-make-cpack-optional-and-disabled-by-default.patch
-        - gl_private_linking.patch  # [linux]
-
+        - patches/gl_private_linking.patch  # [linux]
 
 build:
-    number: 3
+    number: 0
 
 requirements:
     build:
@@ -26,15 +29,22 @@ requirements:
         - {{ cdt('libxdamage') }}  # [linux]
         - {{ cdt('libxxf86vm') }}  # [linux]
         - {{ cdt('libxext') }}     # [linux]
+        - qt6-main  # [build_platform != target_platform and build_variant == "qt6"]
+        - qt-main  # [build_platform != target_platform and build_variant == "qt5"]
         - ninja
         - cmake
     host:
-        - qt-main
+        - qt6-main  # [build_variant == "qt6"]
+        - qt-main  # [build_variant == "qt5"]
         - coin3d
-        
     run:
-        - qt-main
+        - qt6-main  # [build_variant == "qt6"]
+        - qt-main  # [build_variant == "qt5"]
         - coin3d
+    run_constrained:
+        - soqt <0     # [build_variant == "qt6"]
+        - soqt6 <0    # [build_variant == "qt5"]
+
 test:
     requires:
         - cmake
@@ -51,19 +61,20 @@ test:
         - CMakeLists.txt
 
     commands:
-        - cmake -G "Ninja" .
+        - cmake -G "Ninja" -D QT_HOST_PATH=${PREFIX} .
 
 about:
-    home: https://bitbucket.org/Coin3D/soqt
+    home: https://github.com/coin3d/soqt
     license: BSD-3-Clause
     license_family: BSD
     license_file: COPYING
     summary: SoQt library needed by Coin3d.
-    description: SoQt is a Qt GUI component toolkit library for Coin.  It is also compatible
-                 with SGI and TGS Open Inventor, and the API is based on the API of the
-                 InventorXt GUI component toolkit.
-    doc_url: https://bitbucket.org/Coin3D/soqt
-    dev_url: https://bitbucket.org/Coin3D/soqt
+    description: >
+        SoQt is a Qt GUI component toolkit library for Coin. It is also compatible
+        with SGI and TGS Open Inventor, and the API is based on the API of the
+        InventorXt GUI component toolkit.
+    doc_url: https://github.com/coin3d/soqt
+    dev_url: https://github.com/coin3d/soqt
 
 extra:
     recipe-maintainers:
