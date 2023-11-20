@@ -12,13 +12,13 @@ package:
     version: {{ version }}
 
 source:
-    - url: https://github.com/{{ name }}/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
+    - url: https://github.com/coin3d/{{ name }}/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
       sha256: "80289d9bd49ffe709ab85778c952573f43f1c725ea958c6d5969b2e9c77bb3ba"
       patches:
         - patches/gl_private_linking.patch  # [linux]
 
 build:
-    number: 4
+    number: 0
 
 requirements:
     build:
