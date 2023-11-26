@@ -10,3 +10,5 @@ cxx_compiler_version:      # [osx]
 build_variant:
   - "qt6"
   - "qt5"
+qt6_main:
+- '6.6'
