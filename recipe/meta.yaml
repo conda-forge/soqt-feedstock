@@ -18,7 +18,7 @@ source:
         - patches/gl_private_linking.patch  # [linux]
 
 build:
-    number: 1
+    number: 2
 
 requirements:
     build:
