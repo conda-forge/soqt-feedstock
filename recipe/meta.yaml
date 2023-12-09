@@ -25,10 +25,6 @@ requirements:
         - {{ compiler("cxx") }}
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
         - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('libselinux') }}  # [linux]
-        - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
-        - {{ cdt('libxext') }}     # [linux]
         - qt6-main  # [build_platform != target_platform and build_variant == "qt6"]
         - qt-main  # [build_platform != target_platform and build_variant == "qt5"]
         - ninja
@@ -52,10 +48,6 @@ test:
         - {{ compiler("cxx") }}
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
         - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('libselinux') }}  # [linux]
-        - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
-        - {{ cdt('libxext') }}     # [linux]
 
     files:
         - CMakeLists.txt
