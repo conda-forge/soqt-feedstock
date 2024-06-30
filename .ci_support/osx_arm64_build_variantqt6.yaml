@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
 build_variant:
 - qt6
 channel_sources:
@@ -15,7 +17,7 @@ macos_machine:
 qt:
 - '5.15'
 qt6_main:
-- '6.6'
+- '6.7'
 qt_main:
 - '5.15'
 target_platform:
