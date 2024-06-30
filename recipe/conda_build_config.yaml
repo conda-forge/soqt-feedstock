@@ -11,4 +11,4 @@ build_variant:
   - "qt6"
   - "qt5"
 qt6_main:
-- '6.6'
+- '6.7'
