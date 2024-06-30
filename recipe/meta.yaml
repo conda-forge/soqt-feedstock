@@ -25,6 +25,7 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ stdlib("c") }}
     - qt6-main      # [build_platform != target_platform and build_variant == "qt6"]
     - qt-main      # [build_platform != target_platform and build_variant == "qt5"]
     - ninja
