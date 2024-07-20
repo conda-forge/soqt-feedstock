@@ -18,7 +18,7 @@ source:
       - patches/gl_private_linking.patch    # [linux]
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -31,10 +31,6 @@ requirements:
     - ninja
     - cmake
   host:
-    - qt6-main      # [build_variant == "qt6"]
-    - qt-main      # [build_variant == "qt5"]
-    - coin3d
-  run:
     - qt6-main      # [build_variant == "qt6"]
     - qt-main      # [build_variant == "qt5"]
     - coin3d
