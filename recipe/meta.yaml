@@ -1,18 +1,17 @@
-{% set name = "soqt" %}
 {% set version = "1.6.2" %}
 
 {% if build_variant == "qt6" %}
-{% set name_suffix = "6" %}
+{% set name = "soqt6" %}
 {% else %}
-{% set name_suffix = "" %}
+{% set name = "soqt" %}
 {% endif %}
 
 package:
-  name: {{ name }}{{ name_suffix }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  - url: https://github.com/coin3d/{{ name }}/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
+  - url: https://github.com/coin3d/soqt/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
     sha256: "fb483b20015ab827ba46eb090bd7be5bc2f3d0349c2f947c3089af2b7003869c"
     patches:
       - patches/gl_private_linking.patch    # [linux]
@@ -20,15 +19,14 @@ source:
 build:
   number: 2
   run_exports:
-    - {{ pin_subpackage('soqt', max_pin='x.x.x') }}  # [build_variant == "qt5"]
-    - {{ pin_subpackage('soqt6', max_pin='x.x.x') }}  # [build_variant == "qt6"]
+    - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
 requirements:
   build:
-    - {{ compiler("cxx") }}
+    - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
     - qt6-main      # [build_platform != target_platform and build_variant == "qt6"]
     - qt-main      # [build_platform != target_platform and build_variant == "qt5"]
     - ninja
