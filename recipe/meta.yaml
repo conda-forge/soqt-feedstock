@@ -1,4 +1,4 @@
-{% set version = "1.6.2" %}
+{% set version = "1.6.3" %}
 
 {% if build_variant == "qt6" %}
 {% set name = "soqt6" %}
@@ -12,12 +12,12 @@ package:
 
 source:
   - url: https://github.com/coin3d/soqt/releases/download/v{{ version }}/soqt-{{ version }}-src.tar.gz
-    sha256: "fb483b20015ab827ba46eb090bd7be5bc2f3d0349c2f947c3089af2b7003869c"
+    sha256: "79342e89290783457c075fb6a60088aad4a48ea072ede06fdf01985075ef46bd"
     patches:
       - patches/gl_private_linking.patch    # [linux]
 
 build:
-  number: 2
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
