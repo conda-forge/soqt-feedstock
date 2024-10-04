@@ -29,6 +29,8 @@ else
     echo "Skipping Qt tools adjustment. Target platform: ${target_platform}, Build variant: $build_variant"
 fi
 
+CXXFLAGS += -std=c++11
+
 # Run CMake with specified options
 cmake -G "Ninja" \
     -D CMAKE_INSTALL_PREFIX="$PREFIX" \
