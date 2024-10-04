@@ -24,16 +24,16 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ stdlib('c') }}
     - qt6-main      # [build_platform != target_platform and build_variant == "qt6"]
-    - qt-main      # [build_platform != target_platform and build_variant == "qt5"]
+    - qt-main       # [build_platform != target_platform and build_variant == "qt5"]
     - ninja
     - cmake
   host:
     - qt6-main      # [build_variant == "qt6"]
-    - qt-main      # [build_variant == "qt5"]
+    - qt-main       # [build_variant == "qt5"]
     - coin3d
   run_constrained:
     - soqt <0         # [build_variant == "qt6"]
