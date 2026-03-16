@@ -17,7 +17,7 @@ source:
       - patches/gl_private_linking.patch    # [linux]
 
 build:
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
@@ -25,8 +25,6 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
     - qt6-main      # [build_platform != target_platform and build_variant == "qt6"]
     - qt-main       # [build_platform != target_platform and build_variant == "qt5"]
     - ninja
@@ -35,6 +33,7 @@ requirements:
     - qt6-main      # [build_variant == "qt6"]
     - qt-main       # [build_variant == "qt5"]
     - coin3d
+    - libgl-devel                        # [linux]
   run_constrained:
     - soqt <0         # [build_variant == "qt6"]
     - soqt6 <0        # [build_variant == "qt5"]
@@ -44,8 +43,7 @@ test:
     - cmake
     - ninja
     - {{ compiler("cxx") }}
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - libgl-devel                        # [linux]
 
   files:
     - CMakeLists.txt
