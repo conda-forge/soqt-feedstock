@@ -1,13 +1,13 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '2.17'
+- '11.0'
 MACOSX_SDK_VERSION:
 - '11.0'
 build_variant:
 - qt5
 c_stdlib:
-- sysroot
+- macosx_deployment_target
 c_stdlib_version:
-- '2.17'
+- '11.0'
 channel_sources:
 - conda-forge
 channel_targets:

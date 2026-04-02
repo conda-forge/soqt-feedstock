@@ -3,9 +3,5 @@ MACOSX_SDK_VERSION:
 build_variant:
   - "qt6"
   - "qt5"
-c_stdlib:
-  - sysroot
-c_stdlib_version:
-  - '2.17'
 qt6_main:
   - '6.11'
