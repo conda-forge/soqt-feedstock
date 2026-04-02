@@ -1,0 +1,87 @@
+schema_version: 1
+
+context:
+  version: "1.6.3"
+
+package:
+  name: ${{ "soqt6" if build_variant == "qt6" else "soqt" }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/coin3d/soqt/releases/download/v${{ version }}/soqt-${{ version }}-src.tar.gz
+  sha256: 79342e89290783457c075fb6a60088aad4a48ea072ede06fdf01985075ef46bd
+  patches:
+    - if: linux
+      then:
+        - patches/gl_private_linking.patch
+
+build:
+  number: 3
+  script: build
+
+requirements:
+  run_exports:
+    - ${{ pin_subpackage('soqt6' if build_variant == 'qt6' else 'soqt', upper_bound='x.x.x') }}
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - if: build_platform != target_platform and build_variant == "qt6"
+      then: qt6-main
+    - if: build_platform != target_platform and build_variant == "qt5"
+      then: qt-main
+    - ninja
+    - cmake <4
+  host:
+    - if: build_variant == "qt6"
+      then: qt6-main
+    - if: build_variant == "qt5"
+      then: qt-main
+    - coin3d
+    - if: linux
+      then: libgl-devel
+  run_constraints:
+    - if: build_variant == "qt6"
+      then: soqt <0
+    - if: build_variant == "qt5"
+      then: soqt6 <0
+
+tests:
+  - if: unix
+    then:
+      - script: run_test.sh
+        files:
+          recipe:
+            - CMakeLists.txt
+        requirements:
+          build:
+            - cmake
+            - ninja
+            - ${{ compiler("cxx") }}
+            - if: linux
+              then: libgl-devel
+  - if: win
+    then:
+      - script: run_test.bat
+        files:
+          recipe:
+            - CMakeLists.txt
+        requirements:
+          build:
+            - cmake
+            - ninja
+            - ${{ compiler("cxx") }}
+
+about:
+  homepage: https://github.com/coin3d/soqt
+  license: BSD-3-Clause
+  license_file: COPYING
+  summary: SoQt library needed by Coin3d.
+  description: |
+    SoQt is a Qt GUI component toolkit library for Coin. It is also compatible with SGI and TGS Open Inventor,
+    and the API is based on the API of the InventorXt GUI component toolkit.
+  documentation: https://github.com/coin3d/soqt
+  repository: https://github.com/coin3d/soqt
+
+extra:
+  recipe-maintainers:
+    - looooo
