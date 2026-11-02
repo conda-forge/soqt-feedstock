@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 qt6_main:
-- '6.11'
+- '6.12'
 qt_main:
 - '5.15'
 target_platform:
