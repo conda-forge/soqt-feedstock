@@ -16,7 +16,7 @@ source:
         - patches/gl_private_linking.patch
 
 build:
-  number: 4
+  number: 5
   script: build
 
 requirements:
